@@ -1,1 +1,1 @@
-web: gunicorn hdp-1.wsgi
+web: gunicorn configs.wsgi
