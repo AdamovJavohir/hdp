@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDP LC</title>
+
+    {% load static %}
+    <link rel="icon" href="{% static 'images/white.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row">
+           
+            <!-- Matn qismi -->
+            <div class="col-md-6 text-white bg-dark p-4">
+                 <!-- Bootstrap yordamida rasmni ko'rsatish -->
+                <img src="{% static 'images/white1.png' %}" class="img-fluid" alt="My Image" style="max-width:400px; height: 7rem">
+                <h1>📚 Matematika va Ingliz tilidan sifatli ta'limni xohlaysizmi?
+                    Unda HDP Learning Center sizni kutmoqda! 🌟</h1>
+                <p>HDP LCga xush kelibsiz!</p>
+            </div>
+
+            <!-- Forma qismi -->
+            <div class="col-md-6 bg-light p-4">
+                <h3>Imkoniyatni qo'ldan boy bermang, hoziroq ariza qoldiring!</h3>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Ism</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Ismingizni kiriting" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Telefon raqam</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="+998901234567" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="age" class="form-label">Yoshingiz</label>
+                        <input type="number" class="form-control" id="age" name="age" min="1" max="100" placeholder="Yoshingizni kiriting" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="city" class="form-label">Shaharni tanlang</label>
+                        <select class="form-select" id="city" name="city" required>
+                            <option value="" selected disabled>Shaharni tanlang</option>
+                            <option value="Xorazm">Xorazm</option>
+                            <option value="Farg'ona">Farg'ona</option>
+                            <option value="Samarqand">Samarqand</option>
+                            <option value="Toshkent shahar">Toshkent</option>
+                            <option value="Toshkent viloyat">Toshkent viloyat</option>
+                            <option value="Qoraqalpog'iston">Qoraqalpog'iston</option>
+                            <option value="Buxoro">Buxoro</option>
+                            <option value="Andijon">Andijon</option>
+                            <option value="Namangan">Namangan</option>
+                            <option value="Navoiy">Navoiy</option>
+                            <option value="Jizzax">Jizzax</option>
+                            <option value="Qashqadaryo">Qashqadaryo</option>
+                            <option value="Surxandaryo">Surxandaryo</option>
+                            <option value="Sirdaryo">Sirdaryo</option>
+                        
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary w-100">Menga qo'ng'iroq qiling!</button>
+                    <p><br>Darslar Xorazm viloyatida offline,<br>O'zbekiston bo'ylab esa online bo'lib o'tadi!</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
