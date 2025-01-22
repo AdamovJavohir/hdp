@@ -4,10 +4,10 @@ from .models import Application
 class ApplicationForm(forms.ModelForm):
     class Meta:
         model = Application
-        fields = ['name', 'phone', 'age', 'city']
+        fields = ['name', 'phone', 'age', 'course']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ism'}),
             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Telefon raqam'}),
             'age': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Yoshingiz'}),
-            'city': forms.Select(attrs={'class': 'form-control'}),
+            'course': forms.Select(attrs={'class': 'form-control'}),
         }

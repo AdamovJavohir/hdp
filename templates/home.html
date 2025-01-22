@@ -1,36 +1,61 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HDP LC</title>
-
-    {% load static %}
-    <link rel="icon" href="{% static 'images/white.png' %}" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"">
+    <title>HDP Learning Center</title>
+    
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <div class="container py-5">
-        <div class="row">
-           
-            <!-- Matn qismi -->
-            <div class="col-md-6 text-white bg-dark p-4">
-                 <!-- Bootstrap yordamida rasmni ko'rsatish -->
-                <img src="{% static 'images/white1.png' %}" class="img-fluid" alt="My Image" style="max-width:400px; height: 7rem">
-                <h1>📚 Matematika va Ingliz tilidan sifatli ta'limni xohlaysizmi?
-                    Unda HDP Learning Center sizni kutmoqda! 🌟</h1>
-                <p>HDP LCga xush kelibsiz!</p>
+        <div class="row justify-content-center">
+            
+            <!-- Karusel qismi -->
+            <div class="col-md-6">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- Birinchi element -->
+                        <div class="carousel-item active justify-content-center">
+                            <h1>Matematika va IELTS bo‘yicha sifatli taʼlimni HDPda boshlang!</h1>
+                            <p>Orzularingiz sari qadam tashlang.</p>
+                        </div>
+                        <!-- Ikkinchi element -->
+                        <div class="carousel-item justify-content-center">
+                            <h1>Matematika kursi: 0 dan mukammal darajaga yeting!</h1>
+                            <p>Qulay dars jadvali va tajribali o'qituvchilar.</p>
+                        </div>
+                        <!-- Uchinchi element -->
+                        <div class="carousel-item justify-content-center">
+                            <h1>IELTS tayyorlov kurslari: Band balingizni oshiring!</h1>
+                            <p>Professional trenerlar va samarali metodika.</p>
+                        </div>
+                    </div>
+                    <!-- 
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Oldingi</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Keyingi</span>
+                    </button>
+                    -->
+                </div>
             </div>
+            
 
             <!-- Forma qismi -->
-            <div class="col-md-6 bg-light p-4">
-                <h3>Imkoniyatni qo'ldan boy bermang, hoziroq ariza qoldiring!</h3>
+            <div class="col-md-6 bg-light p-4 rounded">
+                <h3 style="color: black;">Qulay taʼlimni boshlang! Shunchaki ro‘yxatdan o‘ting va birinchi qadamni qo‘ying!</h3>
                 <form method="post" action="">
                     {% csrf_token %}
                     
                     <div class="mb-3">
-                        <label for="name" class="form-label">Ism</label>
+                        <label for="name" class="form-label">Ism Familiya</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Ismingizni kiriting" required>
                     </div>
                     
@@ -41,36 +66,25 @@
                     
                     <div class="mb-3">
                         <label for="age" class="form-label">Yoshingiz</label>
-                        <input type="number" class="form-control" id="age" name="age" min="1" max="100" placeholder="Yoshingizni kiriting" required>
+                        <input type="number" class="form-control" id="age" name="age" placeholder="Yoshingizni kiriting" required>
                     </div>
                     
                     <div class="mb-3">
-                        <label for="city" class="form-label">Shaharni tanlang</label>
-                        <select class="form-select" id="city" name="city" required>
-                            <option value="" selected disabled>Shaharni tanlang</option>
-                            <option value="Xorazm">Xorazm</option>
-                            <option value="Farg'ona">Farg'ona</option>
-                            <option value="Samarqand">Samarqand</option>
-                            <option value="Toshkent shahar">Toshkent</option>
-                            <option value="Toshkent viloyat">Toshkent viloyat</option>
-                            <option value="Qoraqalpog'iston">Qoraqalpog'iston</option>
-                            <option value="Buxoro">Buxoro</option>
-                            <option value="Andijon">Andijon</option>
-                            <option value="Namangan">Namangan</option>
-                            <option value="Navoiy">Navoiy</option>
-                            <option value="Jizzax">Jizzax</option>
-                            <option value="Qashqadaryo">Qashqadaryo</option>
-                            <option value="Surxandaryo">Surxandaryo</option>
-                            <option value="Sirdaryo">Sirdaryo</option>
-                        
+                        <label for="course" class="form-label">Qaysi kursda o'qimoqchisiz</label>
+                        <select class="form-select" id="course" name="course" required>
+                            <option value="" selected disabled>Kursni tanlang</option>
+                            <option value="Matematika">Matematika</option>
+                            <option value="IELTS">IELTS</option>
                         </select>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary w-100">Menga qo'ng'iroq qiling!</button>
-                    <p><br>Darslar Xorazm viloyatida offline,<br>O'zbekiston bo'ylab esa online bo'lib o'tadi!</p>
+                    <button type="submit" class="btn btn-primary w-100">Yuborish</button>
                 </form>
             </div>
         </div>
     </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

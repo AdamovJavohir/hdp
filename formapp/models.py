@@ -6,7 +6,7 @@ class Application(models.Model):
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=15)
     age = models.PositiveIntegerField()
-    city = models.CharField(max_length=100)
+    course = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
