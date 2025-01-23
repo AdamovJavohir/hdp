@@ -6,6 +6,10 @@ body {
     font-family: "Poppins", serif !important;
     color: white !important;
 }
+.custom-rounded {
+    border-radius: 3rem !important; /* Istalgan radiusni qo'ying */
+}
+
 
 .btn-custom {
     background-color: #00A651;
